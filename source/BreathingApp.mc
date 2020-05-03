@@ -3,6 +3,8 @@ using Toybox.WatchUi;
 
 class BreathingApp extends Application.AppBase {
 
+	private var view;
+
     function initialize() {
         AppBase.initialize();
     }
@@ -17,7 +19,10 @@ class BreathingApp extends Application.AppBase {
 
     // Return the initial view of your application here
     function getInitialView() {
-        return [ new BreathingView(), new BreathingDelegate() ];
+    	view = new BreathingView();
+    	
+    	var delegate = new BreathingDelegate(view);
+        return [ view,  delegate];
     }
 
 }
