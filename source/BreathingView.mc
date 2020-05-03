@@ -1,4 +1,5 @@
 using Toybox.WatchUi;
+using Toybox.Graphics;
 
 class BreathingView extends WatchUi.View {
 
@@ -21,6 +22,8 @@ class BreathingView extends WatchUi.View {
     function onUpdate(dc) {
         // Call the parent onUpdate function to redraw the layout
         View.onUpdate(dc);
+
+		drawCircles(dc);
     }
 
     // Called when this View is removed from the screen. Save the
@@ -28,5 +31,14 @@ class BreathingView extends WatchUi.View {
     // memory.
     function onHide() {
     }
+	
+	private function drawCircles(dc) {
+        dc.setPenWidth(1);
+        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLACK);
 
+        dc.drawCircle(33, 70, 30);
+        dc.drawCircle(177, 120, 30);
+		
+	}
+	
 }

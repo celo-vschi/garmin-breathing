@@ -6,5 +6,8 @@
     <string id="no_value">--</string>
     <string id="offset">Offset</string>
     <string id="rounds">Rounds</string>
+    
+    <string id="breathe">Breathe</string>
+  
 
 </strings>
