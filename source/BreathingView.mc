@@ -1,6 +1,6 @@
 using Toybox.WatchUi;
 
-class breathingappView extends WatchUi.View {
+class BreathingView extends WatchUi.View {
 
     function initialize() {
         View.initialize();

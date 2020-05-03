@@ -1,7 +1,7 @@
 using Toybox.Application;
 using Toybox.WatchUi;
 
-class breathingappApp extends Application.AppBase {
+class BreathingApp extends Application.AppBase {
 
     function initialize() {
         AppBase.initialize();
@@ -17,7 +17,7 @@ class breathingappApp extends Application.AppBase {
 
     // Return the initial view of your application here
     function getInitialView() {
-        return [ new breathingappView(), new breathingappDelegate() ];
+        return [ new BreathingView(), new BreathingDelegate() ];
     }
 
 }
