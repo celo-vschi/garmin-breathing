@@ -3,5 +3,8 @@
     <string id="AppName">Breathing</string>
 
     <string id="press_start">Press 'Start'</string>
+    <string id="no_value">--</string>
+    <string id="offset">Offset</string>
+    <string id="rounds">Rounds</string>
 
 </strings>
