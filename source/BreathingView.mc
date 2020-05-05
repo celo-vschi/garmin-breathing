@@ -8,8 +8,11 @@ class BreathingView extends WatchUi.View {
 	// Drawable ids
 	const DRAWABLE_TIMER = "TimerLabel";
 	const DRAWABLE_INSTRUCTIONS = "InstructionsLabel";
+	const DRAWABLE_FOOTER = "FooterLabel";
 
 	private var mRunning = false;
+	
+	private var mCounter = 0;
 	
 	private var mPeriodTime = 0;
 	private var mTimer;
@@ -41,6 +44,10 @@ class BreathingView extends WatchUi.View {
 	    // draw instructions
 	    drawable = View.findDrawableById(DRAWABLE_INSTRUCTIONS);
     	drawInstructions(drawable);
+	    
+	    // draw the footer
+	    drawable = View.findDrawableById(DRAWABLE_FOOTER);
+	    drawFooter(drawable);
 	    
         // Call the parent onUpdate function to redraw the layout
         View.onUpdate(dc);
@@ -78,10 +85,23 @@ class BreathingView extends WatchUi.View {
 		drawable.setText(text);
     }
     
+    function drawFooter(drawable) {
+    	var text;
+    	
+    	if (mRunning) {
+    		text = WatchUi.loadResource(Rez.Strings.rounds) + " - " + mCounter;
+    	} else {
+    		text = WatchUi.loadResource(Rez.Strings.free);
+    	}
+    	
+    	drawable.setText(text);
+    }
+    
     function startActivity() {
     	// init vars
     	mRunning = true;
     	mPeriodTime = 0;
+    	mCounter = 0;
     	
     	mTimer = new Timer.Timer();
     	mTimer.start(method(:timerAction), 1000, true);
@@ -113,6 +133,10 @@ class BreathingView extends WatchUi.View {
     function isRunning() {
     	return mRunning;
 	}
+	
+	function increaseCounter() {
+		mCounter++;
+	}	
 	
 	private function drawCircles(dc) {
         dc.setPenWidth(1);

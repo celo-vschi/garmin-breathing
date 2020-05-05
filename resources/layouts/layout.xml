@@ -2,6 +2,7 @@
     
     <label id="InstructionsLabel" x="center" y="5" text="@Strings.press_start"  font="Gfx.FONT_LARGE" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" />
     <label id="TimerLabel" x="center" y="40" font="Gfx.FONT_NUMBER_THAI_HOT" justification="Gfx.TEXT_JUSTIFY_CENTER" color="Gfx.COLOR_WHITE" text="@Strings.no_value" />
+	
 	<!-- 
     <label id="OffsetLabel" x="15" y="50" font="Gfx.FONT_SMALL" justification="Gfx.TEXT_JUSTIFY_LEFT" color="Gfx.COLOR_WHITE" text="@Strings.offset" />
     <label id="OffsetValue" x="33" y="67" font="Gfx.FONT_NUMBER_MILD" justification="Gfx.TEXT_JUSTIFY_CENTER" color="Gfx.COLOR_WHITE" text="@Strings.no_value" />
@@ -10,5 +11,5 @@
     <label id="RoundsValue" x="179" y="117" font="Gfx.FONT_NUMBER_MILD" justification="Gfx.TEXT_JUSTIFY_CENTER" color="Gfx.COLOR_WHITE" text="@Strings.no_value" />
 	 -->    
     
-    <label id="BreathingMode" x="center" y="150" color="Gfx.COLOR_YELLOW" justification="Gfx.TEXT_JUSTIFY_CENTER" text="#free"/>
+    <label id="FooterLabel" x="center" y="150" color="Gfx.COLOR_YELLOW" justification="Gfx.TEXT_JUSTIFY_CENTER" text="#free"/>
 </layout>

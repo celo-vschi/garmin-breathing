@@ -1,4 +1,5 @@
 using Toybox.WatchUi;
+using Toybox.System;
 
 class BreathingDelegate extends WatchUi.BehaviorDelegate {
 
@@ -21,12 +22,21 @@ class BreathingDelegate extends WatchUi.BehaviorDelegate {
 
 	function onKey(keyEvent) {
     	var key = keyEvent.getKey();
+		
 		if (key == WatchUi.KEY_ENTER) {
     		if (!mView.isRunning()) {
 				mView.startActivity();
     		}
     		return true;
+		
+		} else if (key == WatchUi.KEY_UP) {
+			if (mView.isRunning()) {
+				mView.increaseCounter();
+			}
+			return true;
 		}
+		
+		
     	return false;
 	}
     
