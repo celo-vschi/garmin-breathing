@@ -14,7 +14,11 @@ class BreathingDelegate extends WatchUi.BehaviorDelegate {
     	if (mView == null) {
     		return false;
     	} else if (mView.isRunning()) {
-			mView.stopActivity();
+
+			if (mView.getCounter() < 6) {
+				openConfirmationDelegate();
+			}
+			
 			return true;
     	}
     	return false;
@@ -26,14 +30,10 @@ class BreathingDelegate extends WatchUi.BehaviorDelegate {
 		if (key == WatchUi.KEY_ENTER) {
     		if (!mView.isRunning()) {
 				mView.startActivity();
+    		} else {
+				mView.increaseCounter();
     		}
     		return true;
-		
-		} else if (key == WatchUi.KEY_UP) {
-			if (mView.isRunning()) {
-				mView.increaseCounter();
-			}
-			return true;
 		}
 		
 		
@@ -45,6 +45,15 @@ class BreathingDelegate extends WatchUi.BehaviorDelegate {
    			WatchUi.pushView(new SelectModeMenu(), new SelectModeDelegate(), WatchUi.SLIDE_UP);
     	} 
         return true;
+    }
+    
+    function openConfirmationDelegate() {
+    	var dialog = new WatchUi.Confirmation("Wanna exit?");
+    	WatchUi.pushView(
+			dialog,
+			new ExitConfirmationDelegate(mView),
+			WatchUi.SLIDE_IMMEDIATE
+		);
     }
 
 }

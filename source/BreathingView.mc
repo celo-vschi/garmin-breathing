@@ -84,7 +84,6 @@ class BreathingView extends WatchUi.View {
     
     function stopActivity() {
     	mTimer.stop();
-    	mVibrations.finish();
     	closeActivity();
     }
     
@@ -109,6 +108,11 @@ class BreathingView extends WatchUi.View {
 	
 	function increaseCounter() {
 		mCounter++;
-	}	
+		WatchUi.requestUpdate();
+	}
+	
+	function getCounter() {
+		return mCounter;
+	}
 	
 }
