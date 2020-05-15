@@ -8,7 +8,6 @@ class BreathingView extends WatchUi.View {
 	// Drawable ids
 	const DRAWABLE_TIMER = "TimerLabel";
 	const DRAWABLE_INSTRUCTIONS = "InstructionsLabel";
-	const DRAWABLE_FOOTER = "FooterLabel";
 
 	private var mRunning = false;
 	
@@ -24,18 +23,13 @@ class BreathingView extends WatchUi.View {
         mVibrations = new Vibrations();
     }
 
-    // Load your resources here
     function onLayout(dc) {
         setLayout(Rez.Layouts.MainLayout(dc));
     }
 
-    // Called when this View is brought to the foreground. Restore
-    // the state of this View and prepare it to be shown. This includes
-    // loading resources into memory.
     function onShow() {
     }
 
-    // Update the view
     function onUpdate(dc) {
 	    // draw the timer
 	    var drawable = View.findDrawableById(DRAWABLE_TIMER);
@@ -45,19 +39,10 @@ class BreathingView extends WatchUi.View {
 	    drawable = View.findDrawableById(DRAWABLE_INSTRUCTIONS);
     	drawInstructions(drawable);
 	    
-	    // draw the footer
-	    drawable = View.findDrawableById(DRAWABLE_FOOTER);
-	    drawFooter(drawable);
-	    
         // Call the parent onUpdate function to redraw the layout
         View.onUpdate(dc);
-
-//		drawCircles(dc);
     }
 
-    // Called when this View is removed from the screen. Save the
-    // state of this View here. This includes freeing resources from
-    // memory.
     function onHide() {
     }
     
@@ -67,7 +52,7 @@ class BreathingView extends WatchUi.View {
     	if (mRunning) {
     		text = Utils.formatTimerLabelClock(mPeriodTime);
     	} else {
-    		text = WatchUi.loadResource(Rez.Strings.no_value);
+    		text = "00:00";
     	}
 
 		drawable.setText(text);	
@@ -77,24 +62,12 @@ class BreathingView extends WatchUi.View {
     	var text;
     	
     	if (mRunning) {
-    		text = WatchUi.loadResource(Rez.Strings.breathe);
+    		text = "Rounds: " + mCounter;
     	} else {
-    		text = WatchUi.loadResource(Rez.Strings.press_start);
+    		text = "Press 'Start'";
 		}
 		
 		drawable.setText(text);
-    }
-    
-    function drawFooter(drawable) {
-    	var text;
-    	
-    	if (mRunning) {
-    		text = WatchUi.loadResource(Rez.Strings.rounds) + " - " + mCounter;
-    	} else {
-    		text = WatchUi.loadResource(Rez.Strings.free);
-    	}
-    	
-    	drawable.setText(text);
     }
     
     function startActivity() {
@@ -137,14 +110,5 @@ class BreathingView extends WatchUi.View {
 	function increaseCounter() {
 		mCounter++;
 	}	
-	
-	private function drawCircles(dc) {
-        dc.setPenWidth(1);
-        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLACK);
-
-        dc.drawCircle(33, 70, 30);
-        dc.drawCircle(177, 120, 30);
-		
-	}
 	
 }
