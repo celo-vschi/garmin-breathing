@@ -12,7 +12,7 @@ class ExitConfirmationDelegate extends Ui.ConfirmationDelegate {
 	
 	    function onResponse(response) {
 	        if (response == Ui.CONFIRM_YES) {
-				mView.closeActivity();
+				mView.stopActivity();
 	        }
 	    }
 	    

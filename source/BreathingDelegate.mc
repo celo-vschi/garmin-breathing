@@ -18,7 +18,7 @@ class BreathingDelegate extends WatchUi.BehaviorDelegate {
 			if (mView.getCounter() < 6) {
 				openConfirmationDelegate();
 			} else {
-				mView.closeActivity();
+				mView.stopActivity();
 			}
 			
 			return true;
