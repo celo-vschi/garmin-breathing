@@ -1,0 +1,6 @@
+<layout id="MainLayout">
+    
+    <label id="InstructionsLabel" x="center" y="30" font="Gfx.FONT_LARGE" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" />
+    <label id="TimerLabel" x="center" y="center" font="Gfx.FONT_NUMBER_THAI_HOT" justification="Gfx.TEXT_JUSTIFY_CENTER" color="Gfx.COLOR_WHITE" />
+	
+</layout>
